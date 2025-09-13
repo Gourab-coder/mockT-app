@@ -1,0 +1,60 @@
+.header {
+  background-color: #ff7f2a; /* orange */
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 15px;
+}
+
+/* Logo */
+.logo {
+  font-size: 28px;
+  font-family: serif;
+  color: black;
+  margin: 0;
+}
+
+/* Search bar */
+.search-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  margin: 0 30px;
+}
+
+.search-input {
+  width: 60%;
+  max-width: 500px;
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 16px;
+}
+
+.search-input:focus {
+  border-color: #cc5500;
+}
+
+/* Right side (smiley + link) */
+.auth-section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.smiley {
+  font-size: 28px;
+  color: gray;
+}
+
+.auth-link {
+  font-size: 14px;
+  color: black;
+  text-decoration: none;
+}
+
+.auth-link:hover {
+  text-decoration: underline;
+}
