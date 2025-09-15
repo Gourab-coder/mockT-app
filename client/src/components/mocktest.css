@@ -1,0 +1,50 @@
+.mocktests-card {
+  background: #ff7f2a;
+  border-radius: 20px;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  height: 100%;
+}
+
+.test-list {
+  background: #808080;
+  border-radius: 15px;
+  padding: 15px;
+  color: white;
+}
+
+.test-list h3 {
+  font-size: 16px;
+  margin-bottom: 12px;
+  text-decoration: underline;
+}
+
+.test-list p {
+  margin: 10px 0;
+  font-size: 14px;
+}
+
+.users {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 18px;
+}
+
+.create-test {
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.plus {
+  font-size: 26px;
+  display: block;
+  margin-top: 10px;
+}

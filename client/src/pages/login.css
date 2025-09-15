@@ -1,0 +1,88 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Times New Roman", serif;
+}
+
+/* Page container */
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: #fff;
+}
+
+/* Login Container */
+.login-container {
+  background-color: #ff7a2f;
+  padding: 50px 30px;
+  border-radius: 25px;
+  text-align: center;
+  width: 300px;
+}
+
+.logo {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.smiley {
+  font-size: 2rem;
+  margin: 10px 0;
+}
+
+.login-title {
+  margin: 15px 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Form Styles */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.login-form input {
+  padding: 10px;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  font-size: 0.9rem;
+}
+
+.login-form button {
+  background-color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.login-form button:hover {
+  background-color: #f1f1f1;
+}
+
+/* Footer Links */
+footer {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+footer a {
+  text-decoration: none;
+  color: black;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: white;
+}

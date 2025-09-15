@@ -1,29 +1,15 @@
 import React from "react";
 import './header.css'
 
-let Header = () => {
-
+export default function Header () {
     return (
-        <>
-            <header className="header">
-            {/* Logo */}
+        <div className="header">
             <h1 className="logo">mockT</h1>
-
-            {/* Search Bar */}
-            <div className="search-container">
-                <input type="text" placeholder="Search......" className="search-input" />
+            <input className="search" type="text" placeholder="Search......" />
+            <div className="profile">
+                <div className="smiley">😊</div>
+                <p className="username">Gourab2k25</p>
             </div>
-
-            {/* Right Side */}
-            <div className="auth-section">
-                <span className="smiley">😊</span>
-                <a href="#" className="auth-link">Log In</a>
-                <p>/</p>
-                <a href="#" className="auth-link">Sign In</a>
-            </div>
-            </header>
-        </>
+        </div>
     )
 }
-
-export default Header;
