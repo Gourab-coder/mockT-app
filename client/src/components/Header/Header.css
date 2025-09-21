@@ -1,0 +1,91 @@
+/* Header main container */
+#header1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 92vw;
+  padding: 12px 40px;
+  background-color: #f7f9fc; /* light gray background */
+  font-family: "Poppins", sans-serif;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+/* Left side: logo + link */
+#head1 {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+/* Logo text */
+#name {
+  font-size: 22px;
+  font-weight: 700;
+  color: #000;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Example: if you want an icon background for logo */
+#name::before {
+  content: "🌱"; /* temporary emoji logo, replace with your icon */
+  background-color: #c5f58c;
+  padding: 6px;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+/* Link */
+#link {
+  font-size: 15px;
+  color: #555;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+#link:hover {
+  color: #000;
+}
+
+/* Right side: buttons */
+#head2 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Login button */
+#head-btn1 {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#head-btn1:hover {
+  background-color: #333;
+}
+
+/* SignUp button */
+#head-btn2 {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#head-btn2:hover {
+  background-color: #333;
+}

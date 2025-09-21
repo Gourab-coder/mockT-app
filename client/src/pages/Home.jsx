@@ -1,22 +1,17 @@
 import React from "react";
-import "./Home.css";
-import Header from "../components/header";
-import MockTests from "../components/mocktest";
-import Dashboard from "../components/dashboard";
-import Footer from "../components/footer";
+import Header_home from "../components/Header/Header";
+import Body_home from "../components/Body/Body";
+import "./Home.css"
+import Desk from "../components/Card/Desk";
+import Card from "../components/Card/Card";
 
 export default function Home () {
-
     return (
-        <>
-            <div className="login-home">
-                <Header/>
-                <div className="main-section">
-                  <MockTests/>
-                  <Dashboard/>
-                </div>
-                <Footer/>
-            </div>
-        </>
+        <div id="homepage">
+            <Header_home/>
+            <Body_home />
+            <Desk/>
+            <Card/>
+        </div>
     )
 }

@@ -1,0 +1,125 @@
+/*
+ * This CSS file styles the Card component to match the provided image.
+ * It uses flexbox for layout, consistent spacing, and a clean, modern aesthetic.
+ */
+
+/* The main container for the entire card */
+#card1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px; /* Space between the image and text sections */
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    font-family: 'Inter', sans-serif;
+    max-width: 800px;
+    margin: 40px auto;
+}
+
+/* The left-side image container */
+#img {
+    background-color: #e5e5e5;
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    max-width: 300px;
+}
+
+#card-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* The right-side text and button container */
+#file {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Main title of the card */
+#line1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #333;
+    margin: 0;
+}
+
+/* Styling for the list items (Flexible Learning, etc.) */
+#line2, #line3, #line4 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    color: #555;
+    font-weight: 500;
+}
+
+/* Styling for the icons (using a placeholder until actual icons are provided) */
+#line2::before,
+#line3::before,
+#line4::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Placeholder icons for the list items */
+#line2::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V6.5A2.5 2.5 0 0 1 17.5 4H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2Z"/></svg>');
+}
+
+#line3::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a5 5 0 0 0-5 5c0 4.5 4.5 9 5 9s5-4.5 5-9a5 5 0 0 0-5-5z"/><path d="M12 16s-2 5-6 6c0 0-3-1-3-4s2-5 2-5z"/><path d="M12 16s2 5 6 6c0 0 3-1 3-4s-2-5-2-5z"/></svg>');
+}
+
+#line4::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3.5-3.5a5 5 0 0 0-7.07-7.07L9.5 7.5"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3.5 3.5a5 5 0 0 0 7.07 7.07l3.5-3.5"/></svg>');
+}
+
+/* Join Now button styling */
+#file-btn {
+    padding: 12px 25px;
+    background-color: #a7f3d0;
+    color: #1a202c;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#file-btn:hover {
+    background-color: #6ee7b7;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    #card1 {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+        padding: 20px;
+    }
+
+    #img {
+        max-width: 100%;
+        padding: 20px;
+    }
+
+    #file {
+        align-items: center;
+    }
+}
