@@ -1,0 +1,121 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  background: #f7f9fc;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+/* Center the login/signup box on the page */
+.login-center {
+  width: 100vw;                /* Full viewport width */
+  min-height: calc(100vh - 90px); /* Adjust for header height */
+  display: flex;
+  justify-content: center;     /* Center horizontally */
+  align-items: center;         /* Center vertically */
+}
+
+.container {
+  background: #fff;
+  padding: 36px 40px;
+  border-radius: 14px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 4px 24px 0 rgba(66, 68, 90, 0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container > h1 {
+  margin-bottom: 18px;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #222;
+}
+
+.container > form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.container label {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.container input {
+  width: 100%;
+  font-size: 1rem;
+  padding: 10px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  outline: none;
+  background: #f7f9fc;
+  transition: border 0.2s;
+}
+
+.container input:focus {
+  border: 1.5px solid #6dc12b;
+}
+
+.container input::placeholder {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: #aaa;
+}
+
+button[type="submit"] {
+  background-color: #6dc12b;
+  border: none;
+  font-size: 1.1rem;
+  color: #fff;
+  border-radius: 6px;
+  padding: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 10px;
+  transition: background 0.2s;
+}
+
+button[type="submit"]:hover {
+  background-color: #5bb11d;
+}
+
+.container span {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.97rem;
+  color: #444;
+  text-align: center;
+}
+
+.container a {
+  color: #6dc12b;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 4px;
+  transition: color 0.2s;
+}
+
+.container a:hover {
+  color: #4e8e1b;
+}

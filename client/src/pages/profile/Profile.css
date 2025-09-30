@@ -1,0 +1,156 @@
+/* header styles */
+#header-profile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100%;
+  width: 100vw;
+  padding: 12px 40px;
+  background-color: #f7f9fc; /* light gray background */
+  font-family: "Poppins", sans-serif;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+#header-profile #head1 {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+#header-profile #name {
+  font-size: 22px;
+  font-weight: 700;
+  color: #000000;
+}
+
+#header-profile p {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0;
+  color: #c4bcbc;
+}
+
+#header-profile .profile-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Dashboard desk wrapper */
+.dashboard-desk-wrapper {
+  margin-top: 40px; /* Adjust as needed for spacing below header */
+}
+
+.dashboard-desk-wrapper {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Created mock tests section */
+#created-mocktests {
+  margin: 40px auto 40px auto;   /* Add bottom margin for spacing */
+  padding: 20px 0 0 0;          /* Remove bottom padding if not needed */
+  background-color: #f9f9f9;
+  border: 1px solid #d9d1d1;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 800px;
+  width: 100%;
+  max-height: 600px; /* set max height */
+  height: 600px;     /* set fixed height */
+}
+
+#mocktest-list {
+  margin: 20px auto 0 auto;     /* Center horizontally, add top margin */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  border: 1px solid #d9d1d1;
+  width: 600px;
+  height: 400px;
+  max-width: 100%;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  overflow-y: auto;
+  position: relative;
+}
+
+#create-mocktest-btn {
+  margin-top: 0;
+  align-self: center;
+  padding: 12px 24px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 24px; /* Add space at the bottom */
+}
+
+#create-mocktest-btn:hover {
+  background-color: #0056b3;
+}
+
+/* profile */
+#profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 0 40px 0; 
+  /* min-height: 800px;    Set the vertical height */
+  width: 100%;
+}
+
+.profile-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  padding: 48px 32px;
+  gap: 18px;
+  width: 400px;         /* Set the width */
+  /* min-height: 400px; */
+  max-width: 100%;
+}
+
+.profile-avatar,
+.profile-avatar-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: #f7f9fc;
+  object-fit: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-start;
+}
+
+.profile-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #222;
+}
+
+.profile-email {
+  font-size: 1.1rem;
+  color: #888;
+  word-break: break-all;
+}

@@ -1,7 +1,7 @@
 let express = require("express");
 let mongoose = require("mongoose");
 require("dotenv").config();
-let connectDB = require("./config/db");
+let connectDB = require("./App/config/db");
 let app = express();
 app.use(express.json());
 

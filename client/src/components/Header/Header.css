@@ -3,7 +3,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 92vw;
+  max-width: 90%;
+  width: 100vw;
   padding: 12px 40px;
   background-color: #f7f9fc; /* light gray background */
   font-family: "Poppins", sans-serif;
