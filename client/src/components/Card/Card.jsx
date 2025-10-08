@@ -1,11 +1,12 @@
 import React from "react";
 import "./Card.css";
 import img2 from "./img2.png"
-import logo1 from "./logo1.png"
-import logo2 from "./logo2.png"
-import logo3 from "./logo3.png"
 
 export default function Card () {
+    const handleJoinClick = () => {
+        window.open("https://chat.whatsapp.com/EcuFGIcQ1eZAK5Pc0eVLSu", "_blank", "noopener,noreferrer");
+    };
+
     return (
         <div>
             <div id="card1">
@@ -17,7 +18,7 @@ export default function Card () {
                     <p id="line2">Flexible Learning</p>
                     <p id="line3">Expert Instructors</p>
                     <p id="line4">Interactive Community</p>
-                    <button id="file-btn">Join Now</button>
+                    <button id="file-btn" onClick={handleJoinClick}>Join Now</button>
                 </div>
             </div>
         </div>

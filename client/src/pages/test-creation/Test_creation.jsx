@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import AccountCircleTwoToneIcon from '@mui/icons-material/AccountCircleTwoTone';
 import "./Test_creation.css";
+import SuccessPopup from "./SuccessPopup";
+import Header_home from "../../components/Header/Header";
 
 export default function Test_creation() {
   const [testName, setTestName] = useState("");
@@ -15,8 +18,11 @@ export default function Test_creation() {
       answer: ""
     }))
   );
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+  const [createdTestLink, setCreatedTestLink] = useState("");
+  const navigate = useNavigate();
 
-  // Handle number of questions change
+  // Resets the questions array when the total number of questions is changed.
   const handleNumberOfQuestionsChange = (e) => {
     const num = parseInt(e.target.value, 10) || 0;
     setNumberOfQuestions(num);
@@ -28,7 +34,7 @@ export default function Test_creation() {
     })));
   };
 
-  // Handle question field changes
+  // Updates a specific field (like 'question' or 'answer') for a given question.
   const handleQuestionChange = (idx, field, value) => {
     setQuestions(prev =>
       prev.map((q, i) =>
@@ -37,7 +43,7 @@ export default function Test_creation() {
     );
   };
 
-  // Handle option changes
+  // Updates the text of a specific option for a multiple-choice question.
   const handleOptionChange = (qIdx, optIdx, value) => {
     setQuestions(prev =>
       prev.map((q, i) =>
@@ -48,7 +54,7 @@ export default function Test_creation() {
     );
   };
 
-  // Handle question type change
+  // Handles changing a question's type and resets its options/answer structure.
   const handleTypeChange = (idx, value) => {
     setQuestions(prev =>
       prev.map((q, i) =>
@@ -64,34 +70,68 @@ export default function Test_creation() {
     );
   };
 
-  // Handle form submit (for demonstration)
-  const handleSubmit = (e) => {
+  // Gathers all test data, generates a unique test ID, and sends it to the backend.
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Generate the 10-digit test ID
+    const questionsPart = String(numberOfQuestions).padStart(2, '0');
+    const timePart = String(testTime).padStart(2, '0');
+    const randomPart = String(Math.floor(Math.random() * 100000) + 1).padStart(6, '0');
+    const generatedTestId = `${questionsPart}${timePart}${randomPart}`;
+
     const testData = {
-        name: testName,
-        description: testDescription,
-        timeLimit: testTime,
-        numberOfQuestions: numberOfQuestions,
-        questions: questions
+      name: testName,
+      description: testDescription,
+      timeLimit: testTime,
+      numberOfQuestions: numberOfQuestions,
+      questions: questions,
+      testId: generatedTestId
     };
-    console.log("Test Created:", testData);
-    alert("Test Created!");
+
+    try {
+      const token = localStorage.getItem('token'); 
+      if (!token) {
+        alert("Authentication Error: You must be logged in to create a test.");
+        return;
+      }
+
+      const response = await fetch("http://localhost:1001/enquiry/test-creation", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`, // Add the Authorization header
+        },
+        body: JSON.stringify(testData)
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(errorText || `Server responded with ${response.status}`);
+      }
+
+      const result = await response.text();
+      console.log("Test Created:", result);
+      const testLink = `${window.location.origin}/test/${testData.testId}`;
+      setCreatedTestLink(testLink);
+      setShowSuccessPopup(true);
+    } catch (error) {
+      console.error("Error creating test:", error);
+      alert(`Failed to create test: ${error.message}`);
+    }
   };
 
   return (
     <div>
-      <header id="header-test">
-        <div id="head1">
-          <h1 id="name">mockT</h1>
-          <p>test creation</p>
-        </div>
-        <div>
-          <AccountCircleTwoToneIcon style={{ fontSize: "40px", color: "#c4bcbc" }} />
-        </div>
-      </header>
-
+      <Header_home />
       <div id="test-creation-page">
+        <SuccessPopup
+          show={showSuccessPopup}
+          title="Test Created Successfully!"
+          message="Share this link with participants:"
+          link={createdTestLink}
+          onClose={() => setShowSuccessPopup(false)}
+        />
         <h1>Welcome to mockT</h1>
         <div id="test-creation-details">
             <form onSubmit={handleSubmit}>

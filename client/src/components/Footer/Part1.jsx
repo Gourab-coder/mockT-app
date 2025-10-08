@@ -1,6 +1,60 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate} from "react-router-dom";
+import { toast } from 'react-toastify';
 
 export default function Part1(){
+    const navigate = useNavigate();
+    const [email, setEmail] = useState('');
+    
+
+    // Handles the subscription form submission, sending the email to the backend.
+    const handleSubmit = (e) => {
+        e.preventDefault(); // Prevent the default form submission
+        
+        if (!email) {
+            toast.warn("Please enter your email address.");
+            return;
+        }
+
+        const token = localStorage.getItem('token');
+        if(!token){
+            toast.error("You need to login first!");
+            navigate('/login');
+            return;
+        }
+
+        const subscriptionPromise = fetch('http://localhost:1001/api/subscribe', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({ email }),
+        }).then(async (response) => {
+            const result = await response.json();
+            if (response.ok) {
+                setEmail(''); // Clear the input on success
+                return result.message; // This will be the success message for the toast
+            } else {
+                // This will be caught by the .catch() and become the error message for the toast
+                throw new Error(result.message || "Something went wrong.");
+            }
+        });
+
+        toast.promise(
+            subscriptionPromise,
+            {
+                pending: 'Subscribing...',
+                success: {
+                    render({data}){ return data; } // Render the success message from the promise
+                },
+                error: {
+                    render({data}){ return data.message; } // Render the error message from the promise
+                }
+            }
+        );
+    };
+
     return (
         <div id="footer-top">
             <div id="subscribe-section">
@@ -8,8 +62,15 @@ export default function Part1(){
                     <h1 id="name1">mockT</h1>
                     <p id="text1">Subscribe for the latest courses, tips, and updates. Join our learning community today!</p>
                 </div>
-                <form action="mail" id="form">
-                    <input type="text" placeholder="Enter your email" id="form-input" />
+                <form onSubmit={handleSubmit} id="form">
+                    <input 
+                        type="email" 
+                        placeholder="Enter your email" 
+                        id="form-input" 
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required 
+                    />
                     <button id="form-btn" type="submit">Subscribe</button>
                 </form>
             </div>

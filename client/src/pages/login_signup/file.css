@@ -22,11 +22,11 @@ body {
 
 /* Center the login/signup box on the page */
 .login-center {
-  width: 100vw;                /* Full viewport width */
-  min-height: calc(100vh - 90px); /* Adjust for header height */
+  width: 100vw;               
+  min-height: calc(100vh - 90px); 
   display: flex;
-  justify-content: center;     /* Center horizontally */
-  align-items: center;         /* Center vertically */
+  justify-content: center;     
+  align-items: center;   
 }
 
 .container {

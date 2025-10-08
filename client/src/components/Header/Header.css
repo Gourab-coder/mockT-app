@@ -1,20 +1,23 @@
 /* Header main container */
 #header1 {
   display: flex;
+  flex-wrap: nowrap; /* Prevent items from wrapping to the next line */
   justify-content: space-between;
   align-items: center;
-  max-width: 90%;
+  max-width: 100%;
   width: 100vw;
-  padding: 12px 40px;
+  padding: 0 40px; /* Vertical padding is handled by height */
   background-color: #f7f9fc; /* light gray background */
   font-family: "Poppins", sans-serif;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  box-shadow: 2px 4px 8px rgba(88, 87, 87, 0.08);
+  height: 80px;
 }
 
 /* Left side: logo + link */
 #head1 {
   display: flex;
   align-items: center;
+  flex-shrink: 0; /* Prevent this container from shrinking */
   gap: 40px;
 }
 
@@ -26,15 +29,15 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  text-decoration: none;
 }
 
-/* Example: if you want an icon background for logo */
-#name::before {
-  content: "🌱"; /* temporary emoji logo, replace with your icon */
-  background-color: #c5f58c;
-  padding: 6px;
-  border-radius: 6px;
-  font-size: 16px;
+/* New Logo Image Styles */
+#logo {
+  height: 100px; /* Adjust to your preferred logo size */
+  width: auto;
+  display: block; /* Removes extra space below the image */
+  transition: height 0.2s ease-in-out;
 }
 
 /* Link */
@@ -57,8 +60,8 @@
   gap: 12px;
 }
 
-/* Login button */
-#head-btn1 {
+/* Combined Login/Signup button styles */
+.header-auth-btn {
   background-color: #000;
   color: #fff;
   border: none;
@@ -67,26 +70,178 @@
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
-#head-btn1:hover {
+.header-auth-btn:hover {
   background-color: #333;
 }
+/* Logged-in header styles */
+#head2-loggedIn {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Spacing between elements */
+}
 
-/* SignUp button */
-#head-btn2 {
-  background-color: #000;
-  color: #fff;
-  border: none;
-  padding: 8px 18px;
-  border-radius: 8px;
-  font-size: 14px;
+.header-profile-avatar-img {
+  width: 35px; /* Smaller size for header */
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #eee;
+}
+
+.header-profile-avatar {
+  /* Styles for the MUI icon when no photo */
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #f0f2f5; /* Light background for the icon */
+}
+
+.header-profile-name {
+  font-size: 16px;
   font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  color: #333;
 }
 
-#head-btn2:hover {
-  background-color: #333;
+#logout-btn {
+  padding: 8px 15px;
+  background-color: #dc3545; /* Red for logout */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+#logout-btn:hover {
+  background-color: #c82333;
+}
+
+.header-profile-container {
+  position: relative;
+}
+
+.header-profile-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: inherit; /* Inherit color from parent */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.header-profile-link:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* --- Profile Menu Dropdown --- */
+.profile-menu {
+  position: absolute;
+  top: calc(100% + 10px); /* Position below the button with a small gap */
+  right: 0;
+  background-color: white;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  width: 240px;
+  padding: 0;
+  overflow: hidden; /* Ensures children conform to border-radius */
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.profile-menu-info {
+  padding: 15px;
+}
+
+.profile-menu-name,
+.profile-menu-email {
+  margin: 0;
+  word-break: break-all; /* Prevents long names/emails from overflowing */
+}
+
+.profile-menu-link {
+  padding: 12px 15px;
+  text-decoration: none;
+  color: #007bff;
+  background-color: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+  text-align: center;
+  transition: background-color 0.2s;
+  font-weight: 500;
+}
+
+.profile-menu-link:hover {
+  background-color: #e9ecef;
+}
+
+/* --- Responsive Design --- */
+
+/* Tablet and smaller devices */
+@media (max-width: 768px) {
+  #header1 {
+    padding: 0 20px;
+    height: 70px;
+  }
+
+  #head1 {
+    gap: 20px;
+  }
+
+  #name {
+    font-size: 20px;
+  }
+
+  #link {
+    font-size: 14px;
+  }
+
+  .header-auth-btn,
+  #logout-btn {
+    padding: 7px 14px;
+    font-size: 13px;
+  }
+}
+
+/* Mobile devices */
+@media (max-width: 480px) {
+  #header1 {
+    padding: 0 15px;
+    height: 60px;
+    width: 100%;
+  }
+
+  #logo {
+    height: 100px;
+  }
+  .profile-menu {
+    width: 200px;
+  }
+
+  #link, .header-profile-name {
+    display: none;
+  }
 }

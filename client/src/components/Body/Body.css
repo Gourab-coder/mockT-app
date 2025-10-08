@@ -10,14 +10,14 @@
 }
 
 /* Heading text */
-#text1 p {
+#text1 h1 {
   font-size: 32px;
   font-weight: 500;
   color: #222;
   line-height: 1.4;
 }
 
-#text1 h1 {
+#text1 h1 span {
   display: inline-block;
   font-size: 38px;
   font-weight: 700;

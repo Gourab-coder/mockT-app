@@ -1,0 +1,62 @@
+.about-page {
+    display: flex;
+    flex-direction: column;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 20px;
+    font-family: "Poppins", sans-serif;
+}
+
+#text-part {
+    flex: 1;
+}
+
+#text-part h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#text-part p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+#img-part {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#img-part img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+        margin: 30px 15px;
+        text-align: center;
+    }
+
+    #text-part h1 {
+        font-size: 2rem;
+    }
+
+    #img-part {
+        order: -1;
+        margin-bottom: 20px;
+    }
+}

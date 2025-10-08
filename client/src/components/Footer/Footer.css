@@ -1,7 +1,7 @@
 /* Footer.css */
 
 #footer {
-  background: #f7f9fc;
+  background: #d9fcdf;
   padding: 60px 80px 30px;
   font-family: 'Inter', sans-serif;
   color: #1e1e1e;
@@ -11,14 +11,18 @@
 #footer-top {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  /* align-items: flex-start; */
+  flex-direction: row;
   flex-wrap: wrap;
   margin-bottom: 40px;
-  gap: 60px;
+  gap: 200px;
 }
 
 /* Subscribe Section */
 #subscribe-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
   flex: 1;
   min-width: 280px;
 }
@@ -29,14 +33,6 @@
   color: #1e1e1e;
   margin-bottom: 8px;
 }
-
-/* #sub {
-  display: block;
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 6px;
-  color: #1e1e1e;
-} */
 
 #text1 {
   font-size: 14px;
@@ -82,8 +78,9 @@
 /* Links Section */
 #links-section {
   display: flex;
-  gap: 80px;
+  justify-content: space-around;
   flex: 1;
+  width: 50%;
   min-width: 280px;
 }
 

@@ -3,7 +3,8 @@
 /* Overall container for the three cards */
 #desk1 {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
   gap: 40px; /* Space between the cards */
   padding: 50px;
   background-color: #f7f9fc; /* A light, soft background color */
@@ -34,11 +35,11 @@
 }
 
 /* 'View more' buttons */
-#mock-btn, #talk-btn, #code-btn {
+.desk-btn {
   padding: 12px 25px;
   margin-top: 15px;
-  background-color: #d1ff8f; /* Light green color */
-  color: #333;
+  background-color: #9be35c; /* Light green color */
+  color: #000;
   border: none;
   border-radius: 10px;
   font-size: 1rem;
@@ -47,8 +48,8 @@
   transition: background-color 0.3s ease;
 }
 
-#mock-btn:hover, #talk-btn:hover, #code-btn:hover {
-  background-color: #c0eb80; /* A slightly darker green on hover */
+.desk-btn:hover {
+  background-color: #80cc46; /* A slightly darker green on hover */
 }
 
 /* Add the computer emoji icon to the cards */
