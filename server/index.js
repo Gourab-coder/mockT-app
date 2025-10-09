@@ -10,16 +10,23 @@ const connectDB = require('./App/config/db');
 const PORT = process.env.PORT || 1001;
 
 connectDB();
+
+// Define allowed origins
+const allowedOrigins = [
+    'http://localhost:5173', // Local development
+    process.env.FRONTEND_URL   // Deployed frontend URL from environment variables
+];
+
 app.use(cors({
-    origin: 'http://localhost:5173', // frontend's origin
+    origin: allowedOrigins,
     credentials: true
 }));
 app.use(express.json());
-app.use('/auth', authRouter);
-app.use('/enquiry', enquiry_router);
+app.use('/api/auth', authRouter);
+app.use('/api/enquiry', enquiry_router);
 app.use('/api', subscribeRouter);
 
-app.get('/home', (req, res) => {
+app.get('/', (req, res) => {
     res.send('Welcome to MockT API');
 });
 

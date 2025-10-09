@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate} from "react-router-dom";
 import { toast } from 'react-toastify';
 
+
 export default function Part1(){
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
@@ -23,7 +24,7 @@ export default function Part1(){
             return;
         }
 
-        const subscriptionPromise = fetch('http://localhost:1001/api/subscribe', {
+        const subscriptionPromise = fetch(`${import.meta.env.VITE_API_URL}/subscribe`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -34,9 +35,8 @@ export default function Part1(){
             const result = await response.json();
             if (response.ok) {
                 setEmail(''); // Clear the input on success
-                return result.message; // This will be the success message for the toast
+                return result.message; 
             } else {
-                // This will be caught by the .catch() and become the error message for the toast
                 throw new Error(result.message || "Something went wrong.");
             }
         });

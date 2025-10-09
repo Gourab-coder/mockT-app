@@ -31,9 +31,7 @@ export default function Mock_dash() {
     const fetchCreatedTests = async () => {
         setIsLoading(true);
         try {
-            const url = "http://localhost:1001/enquiry/user-data";
-
-            const response = await fetch(url, {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/enquiry/user-data`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -93,7 +91,7 @@ export default function Mock_dash() {
         console.log("Deleting test:", testToDelete.testId);
 
         try {
-            const url = `http://localhost:1001/enquiry/delete-test/${testToDelete.testId}`;
+            const url = `${import.meta.env.VITE_API_URL}/enquiry/delete-test/${testToDelete.testId}`;
             const response = await fetch(url, {
                 method: 'DELETE',
                 headers: {
@@ -123,7 +121,7 @@ export default function Mock_dash() {
 
         try {
             // 1. Fetch the full test data
-            const url = `http://localhost:1001/enquiry/test/${test.testId}`;
+            const url = `${import.meta.env.VITE_API_URL}/enquiry/test/${test.testId}`;
             const response = await fetch(url, {
                 headers: { 'Authorization': `Bearer ${userData.token}` }
             });

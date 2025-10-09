@@ -28,7 +28,7 @@ export default function Test_taking () {
 
         try {
             setLoading(true);
-            const response = await fetch(`http://localhost:1001/enquiry/test/${testId}`);
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/enquiry/test/${testId}`);
 
             if (!response.ok) {
                 if (response.status === 404) {
@@ -39,14 +39,14 @@ export default function Test_taking () {
 
             const data = await response.json();
             setTestData(data);
-            console.log(data);
+            // console.log(data);
             setQuestions(data.questions || []); 
             setUserAnswers(new Array(data.questions.length).fill(""));
             setTimeLeft(data.timeLimit * 60);
             setError(null);
         } catch (err) {
             setError(err.message || "An unexpected error occurred.");
-            console.error(err);
+            // console.error(err);
         } finally {
             setLoading(false);
         }
@@ -131,7 +131,7 @@ export default function Test_taking () {
         }
         console.log(scoreData);
         try {
-            const url = `http://localhost:1001/enquiry/test-score`;
+            const url = `${import.meta.env.VITE_API_URL}/enquiry/test-score`;
             const response = await fetch(url, {
                 method: "PUT",
                 headers: {

@@ -31,8 +31,7 @@ export default function Signup(){
             return handleError('name, email and password are required')
         }
         try {
-            const url = "http://localhost:1001/auth/signup";
-            const response = await fetch(url, {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/auth/signup`, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'

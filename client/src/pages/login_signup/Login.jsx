@@ -31,8 +31,7 @@ export default function Login() {
         }
 
         try {
-            const url = "http://localhost:1001/auth/login";
-            const response = await fetch(url, {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/auth/login`, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'

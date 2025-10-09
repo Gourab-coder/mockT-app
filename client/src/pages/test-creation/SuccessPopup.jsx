@@ -17,7 +17,7 @@ export default function SuccessPopup({ show, link, onClose, title, message }) {
 
   const handleExit = () => {
     onClose(); // Hide the popup
-    // navigate('/'); // This navigation is now optional
+    navigate('/');
   };
 
   return (

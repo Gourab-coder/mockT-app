@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import AccountCircleTwoToneIcon from '@mui/icons-material/AccountCircleTwoTone';
 import "./Test_creation.css";
 import SuccessPopup from "./SuccessPopup";
 import Header_home from "../../components/Header/Header";
@@ -96,7 +95,7 @@ export default function Test_creation() {
         return;
       }
 
-      const response = await fetch("http://localhost:1001/enquiry/test-creation", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/enquiry/test-creation`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
