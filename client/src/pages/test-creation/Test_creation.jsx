@@ -111,7 +111,7 @@ export default function Test_creation() {
 
       const result = await response.text();
       console.log("Test Created:", result);
-      const testLink = `${window.location.origin}/test/${testData.testId}`;
+      const testLink = `https://mockt.vercel.app/test/${testData.testId}`;
       setCreatedTestLink(testLink);
       setShowSuccessPopup(true);
     } catch (error) {
