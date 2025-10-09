@@ -11,16 +11,12 @@ const PORT = process.env.PORT || 1001;
 
 connectDB();
 
-// Define allowed origins
-const allowedOrigins = [
-    'http://localhost:5173', // Local development
-    process.env.FRONTEND_URL   // Deployed frontend URL from environment variables
-];
-
 app.use(cors({
-    origin: allowedOrigins,
-    credentials: true
+  origin: "https://mockt.vercel.app",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
 }));
+
 app.use(express.json());
 app.use('/api/auth', authRouter);
 app.use('/api/enquiry', enquiry_router);
