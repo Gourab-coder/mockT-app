@@ -30,8 +30,9 @@ app.get('/', (req, res) => {
     res.send('Welcome to MockT API');
 });
 
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
+const serverless = require('serverless-http');
+module.exports = app;
+module.exports.handler = serverless(app);
+
 
 // http://localhost:1001/home
