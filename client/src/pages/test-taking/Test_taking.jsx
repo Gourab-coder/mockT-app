@@ -193,9 +193,31 @@ export default function Test_taking () {
                     )}
                     {isTestFinished && (
                         <div className="test-results">
-                            <h2>Test Finished!</h2>
-                            <p>Your Score: {finalScore} / {questions.length}</p>
-                            <button className="test-end-btn" onClick={() => navigate('/')}>Test End</button>
+                            <h2 className="results-title">Test Finished!</h2>
+                            <p className="final-score">Your Score: {finalScore} / {questions.length}</p>
+                            
+                            <div className="test-review">
+                                <h3>Review Your Answers</h3>
+                                {questions.map((question, index) => {
+                                    const userAnswer = userAnswers[index];
+                                    const correctAnswer = question.answer;
+                                    const isCorrect = question.type === 'short-answer'
+                                        ? userAnswer.toLowerCase() === correctAnswer.toLowerCase()
+                                        : userAnswer === correctAnswer;
+
+                                    return (
+                                        <div key={index} className={`review-item ${isCorrect ? 'correct' : 'incorrect'}`}>
+                                            <p><strong>Question {index + 1}:</strong> {question.question}</p>
+                                            <div className="ans-review">
+                                                <p><strong>Your Answer:</strong> <span className="user-answer">{userAnswer || "N/A"}</span></p>
+                                                {!isCorrect && <p><strong>Correct Answer:</strong> <span className="correct-answer">{correctAnswer}</span></p>}
+                                            </div>
+                                        </div>
+                                    )
+                                })}
+                            </div>
+
+                            <button className="test-end-btn" onClick={() => navigate('/')}>Go to Homepage</button>
                         </div>
                     )}
                     {startTest && !isTestFinished && testData && (
