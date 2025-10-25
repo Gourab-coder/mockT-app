@@ -21,8 +21,8 @@ export default function SuccessPopup({ show, link, onClose, title, message }) {
   };
 
   return (
-    <div className="popup-overlay">
-      <div className="popup-content">
+    <div className="popup-overlay" onClick={onClose}>
+      <div className="popup-content" onClick={(e) => e.stopPropagation()}>
         <h2>{title}</h2>
         <p>{message}</p>
         <div className="link-container">
